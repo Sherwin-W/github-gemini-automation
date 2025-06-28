@@ -16,8 +16,13 @@ if [ -n "$(git status --porcelain)" ]; then
   echo "PR created: $PR_URL"
 
   # 4. Merge the PR (and delete branch after merge)
-  gh pr merge "$PR_URL" --merge --delete-branch --admin
+  # Create PR (no need to capture URL)
+  gh pr create --fill --title "Note update $(date)" --body "Automated note update"
+
+  # Merge the PR for the current branch and delete it after merging
+  gh pr merge --merge --delete-branch --admin
   echo "PR merged and branch deleted."
+
 
   # 5. Run Gemini CLI code review (all files)
   echo "Running Gemini code review..."
