@@ -14,7 +14,7 @@ def pair_sum_sorted(nums: List[int], target: int) -> List[int]:
 
 if __name__ == "__main__":
     nums = [1, 2, 4, 6, 10]
-    target = 8
+    target = 12
     result = pair_sum_sorted(nums, target)
     print("Input:", nums)
     print("Target:", target)
